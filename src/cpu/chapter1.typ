@@ -14,10 +14,10 @@ also adds some unique elements. Specifically, it borrows from many RISC architec
 but it also has features seen mostly on CISC processors like x86 and M68k. It is best described as a 16-bit load-store
 variable-length 2-op instructions architecture with dual register files and both flagged and flagless condition codes,
 operating on a unified word-addressed code+data memory space, often referred to as a Von Neumann architecture.
-A rudimentary system for interrupts and a privileged mode are also available. \
+A rudimentary system for interrupts, a memory management system  and a privileged mode are also available. \
 
-PHINIX+ is open source hardware and as such the source for this documentation and for reference implementations are available
-under GPLv3 over at the author's #link("https://github.com/martandrMC/cpu-design/tree/main/phinix%2B")[GitHub page]. \
+PHINIX+ is open source hardware and as such the source for this documentation and for reference implementations are
+available under GPLv3 over at the PHINIX+ #link("https://github.com/phinixplus")[GitHub organization]. \
 
 == Glossary
 Esoteric terminology or PHINIX+-specific definitions of are listed below:
