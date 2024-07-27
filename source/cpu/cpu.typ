@@ -1,5 +1,5 @@
 #import "/source/template.typ": template
-#show: x => template("Part 1: The CPU", "α.1", "July 2024", x)
+#show: x => template("Part 1: The CPU", "0.1", "July 2024", x)
 
 = Heading
 #lorem(50)
