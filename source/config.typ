@@ -13,6 +13,7 @@
 #let table-bg-color = luma(8%)
 
 #let code-bg-color = luma(90%)
+#let code-fg-color = luma(80%)
 #let code-weight = 500
 
 #let text-size-1 = 8pt

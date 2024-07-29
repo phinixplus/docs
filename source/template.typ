@@ -1,4 +1,4 @@
-#import "/source/utilities.typ": modulo, date-now
+#import "/source/utilities.typ": date-now
 
 #import "/source/config.typ": font-sans, font-serif
 #import "/source/config.typ": text-fg-color, inv-text-fg-color
@@ -35,6 +35,14 @@
 		else { par[#numbers #title] }
 	}
 
+	show figure: set align(center)
+	show figure: x => block[#x.body#v(0.5em, weak: true)#x.caption]
+	show figure.caption: x => {
+		set text(weight: text-weight-bold)
+		[#x.supplement #x.counter.display(x.numbering):]
+		text(weight: text-weight-normal)[ #x.body]
+	}
+
 	page(numbering: none, margin: (top: 80mm, bottom: 20mm))[#{
 		set align(center + top)
 		set text(weight: text-weight-bold, fill: luma(0))
@@ -50,12 +58,12 @@
 			[
 				Come discuss with us at the official PHINIX+ Discord server: \
 				#link(discord-link, box(image("/assets/discord.svg", width: 5%)))
-				#link(discord-link, discord-link)
+				#link(discord-link)
 			], [
-				Version: #version \ Date: #date-now \ by Martin Andronikos 
+				Version: #version \ Date: #date-now \ by Martin Andronikos
 			], [
 				#link(license-link, box(image("/assets/license.svg", width: 50%)))
-				\ Licensed under CC BY-NC-SA 4.0 \ #link(license-link, license-link)
+				\ Licensed under CC BY-NC-SA 4.0 \ #link(license-link)
 			]
 		)
 	}]
