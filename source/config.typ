@@ -20,3 +20,4 @@
 #let text-size-2 = 10pt
 #let text-size-3 = 12pt
 #let text-size-4 = 14pt
+#let text-size-5 = 16pt

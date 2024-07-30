@@ -3,7 +3,7 @@
 #import "/source/config.typ": font-sans, font-serif
 #import "/source/config.typ": text-fg-color, inv-text-fg-color
 #import "/source/config.typ": text-weight-normal, text-weight-bold
-#import "/source/config.typ": text-size-1, text-size-2, text-size-3, text-size-4
+#import "/source/config.typ": text-size-1, text-size-2, text-size-3, text-size-4, text-size-5
 #import "/source/config.typ": heading-fg-color, heading-weight
 #import "/source/config.typ": table-bg-color
 
@@ -38,20 +38,22 @@
 	show figure: set align(center)
 	show figure: x => block[#x.body#v(0.5em, weak: true)#x.caption]
 	show figure.caption: x => {
-		set text(weight: text-weight-bold)
+		set text(size: text-size-1, weight: text-weight-bold)
 		[#x.supplement #x.counter.display(x.numbering):]
 		text(weight: text-weight-normal)[ #x.body]
 	}
 
 	page(numbering: none, margin: (top: 80mm, bottom: 20mm))[#{
 		set align(center + top)
+		set text(font: font-sans)
 		set text(weight: text-weight-bold, fill: luma(0))
 		image("/assets/logo.svg", width: 25%)
-		text(size: text-size-4)[The PHINIX+ System Architecture Documentation \ ]
-		text(size: text-size-3)[#doc-part]
+		text(size: text-size-5)[The PHINIX+ System Architecture Documentation \ ]
+		text(size: text-size-4)[#doc-part]
 
 		set align(center + bottom)
-		set text(size: text-size-1, weight: text-weight-normal, fill: luma(80))
+		set text(font: font-serif, size: text-size-1)
+		set text(weight: text-weight-normal, fill: luma(80))
 		let license-link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 		let discord-link = "https://discord.gg/EFKDF3VE9C"
 		table(columns: (1fr, 1fr, 1fr), align: horizon, stroke: 0pt,
