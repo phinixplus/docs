@@ -16,6 +16,11 @@
 	}]
 }
 
+#let separator(length: 98%) = {
+	show line: set align(center)
+	line(length: length, stroke: 0.1mm)
+}
+
 #let date-now = {
 	let today = datetime.today()
 	let (day-num, year-num) = (today.day(), today.year())

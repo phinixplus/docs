@@ -1,11 +1,9 @@
 #import "/source/utilities.typ": date-now
 
 #import "/source/config.typ": font-sans, font-serif
-#import "/source/config.typ": text-fg-color, inv-text-fg-color
-#import "/source/config.typ": text-weight-normal, text-weight-bold
+#import "/source/config.typ": text-fg-color, inv-text-fg-color, heading-fg-color, table-bg-color
+#import "/source/config.typ": text-weight-normal, text-weight-bold, heading-weight
 #import "/source/config.typ": text-size-1, text-size-2, text-size-3, text-size-4, text-size-5
-#import "/source/config.typ": heading-fg-color, heading-weight
-#import "/source/config.typ": table-bg-color
 
 #let template(doc-part, version, content) = {
 	set page(paper: "a4", numbering: "1")
@@ -17,8 +15,6 @@
 	set par(leading: 0.6em)
 
 	set block(breakable: true)
-	set line(length: 98%, stroke: 0.01em)
-	show line: set align(center)
 	show link: x => text(fill: blue, underline(x))
 	show ref: x => text(fill: blue, x)
 	
@@ -79,5 +75,5 @@
 	outline(indent: 0.75em, fill: none)
 	pagebreak()
 
-	[ #content ]
+	[#content]
 }
