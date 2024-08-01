@@ -1,4 +1,6 @@
-= Introduction
+#let intro = [
+
+= Introduction <Introduction>
 This document is the official specification for the PHINIX+ Central Processing
 Unit. It is intended to explain in detail the capabilities and the layout of
 the processor in an abstract manner in order to remain agnostic of the possible
@@ -29,3 +31,5 @@ is the dual register file. This is a feature influenced directly by the Motorola
 the the adoption of the dual register file was due to similar reasons. As a
 result PHINIX+ has been lovingly nicknamed the _Actually-RISC#emoji.tm M68k_
 #footnote[Disclaimer: Not actually a trademark.].
+
+]

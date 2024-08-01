@@ -5,6 +5,9 @@
 #import "/source/config.typ": text-weight-normal, text-weight-bold, heading-weight
 #import "/source/config.typ": text-size-1, text-size-2, text-size-3, text-size-4, text-size-5
 
+#let license-link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+#let discord-link = "https://discord.gg/EFKDF3VE9C"
+
 #let template(doc-part, version, content) = {
 	set page(paper: "a4", numbering: "1")
 	set page(margin: (x: 25mm, y: 20mm))
@@ -30,6 +33,7 @@
 		let title = underline(offset: 0.1em, x.body)
 		if x.location().page() < 3 { par[#title] }
 		else { par[#numbers #title] }
+		v(0.8em, weak: true)
 	}
 
 	show figure: set align(center)
@@ -51,8 +55,6 @@
 		set align(center + bottom)
 		set text(font: font-serif, size: text-size-1)
 		set text(weight: text-weight-normal, fill: luma(80))
-		let license-link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-		let discord-link = "https://discord.gg/EFKDF3VE9C"
 		table(columns: (1fr, 1fr, 1fr), align: horizon, stroke: 0pt,
 			[
 				Come discuss with us at the official PHINIX+ Discord server: \
