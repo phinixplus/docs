@@ -10,10 +10,10 @@ intention to exploit pipelining to gain in performance.
 PHINIX+ is a "constructed" acronym which stands for _Pipelined High-speed
 INteger Instruction eXecutor_. The "+" in the name is to signify and advancement
 from a previously designed processor, PHINIX, from whom most ideas where
-directly taken and improved upon. PHINIX used 16bit word-addressing which
-turned out to be unwieldy and not deliver in terms of memory capacity.PHINIX+
+directly taken and improved upon. PHINIX used 16-bit word-addressing which
+turned out to be unwieldy and not deliver in terms of memory capacity. PHINIX+
 expands to 32 bits while also adding byte-addressing to simplify integration
-with the existing computing paradigms, all based around 8 bit units.
+with the existing computing paradigms, all based around 8-bit units.
 
 == Influence Sources
 PHINIX+ mainly derives from the _Reduced Instruction Set Computing_ (RISC)

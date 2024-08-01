@@ -24,6 +24,7 @@
 	show heading.where(level: 3): set text(size: text-size-2)
 	show heading.where(level: 2): set text(size: text-size-3)
 	show heading.where(level: 1): x => {
+		pagebreak(weak: true)
 		set text(size: text-size-4)
 		let numbers = counter(heading).display()
 		let title = underline(offset: 0.1em, x.body)
@@ -73,7 +74,7 @@
 	show table.cell.where(y: 0): set text(fill: inv-text-fg-color)
 
 	outline(indent: 0.75em, fill: none)
-	pagebreak()
+	pagebreak(weak: true)
 
 	[#content]
 }
