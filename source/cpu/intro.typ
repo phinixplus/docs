@@ -41,14 +41,14 @@ been taken to devise methods that improve performance using the minimum amount
 of required hardware. A list of the most important novel features of the CPU
 are as follows:
 #show table.cell: set align(center + horizon)
-#figure(table(columns: 2,
+#figure(table(columns: (1fr, 2fr),
 	table.header([Feature], [Justification]),
 	[Dual register files. #footnote[As mentioned prior in relation to the m68k.]
-	(The separation of data and address registers, allowing for simultaneous
-	operations.)],
-	[The separation of the registers allows for a trivial auto-increment
+	(The separation of data and address registers.)],
+	[The separation of the register files allows for a trivial auto-increment
 	operation, removing the need for special hardware for the stack and other
-	pointers.],
+	pointers. This feature also allows for two independent operations to
+	be executed in parallel if the implementation supports it.],
 
 	[Flags register file. (The ability to use any flag bit for any purpose.)],
 	[Makes operations on them a feasible prospect, reducing the amount of
