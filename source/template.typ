@@ -44,6 +44,12 @@
 		text(weight: text-weight-normal)[ #x.body]
 	}
 
+	set table(stroke: 0.2mm + table-bg-color)
+	set table(fill: (_, row) => if row == 0 {table-bg-color} else {white})
+	show table: set align(center)
+	show table.cell.where(y: 0): set text(weight: text-weight-bold)
+	show table.cell.where(y: 0): set text(fill: inv-text-fg-color)
+
 	page(numbering: none, margin: (top: 80mm, bottom: 20mm))[#{
 		set align(center + top)
 		set text(font: font-sans)
@@ -55,7 +61,7 @@
 		set align(center + bottom)
 		set text(font: font-serif, size: text-size-1)
 		set text(weight: text-weight-normal, fill: luma(80))
-		table(columns: (1fr, 1fr, 1fr), align: horizon, stroke: 0pt,
+		grid(columns: (1fr, 1fr, 1fr), align: horizon, stroke: 0pt,
 			[
 				Come discuss with us at the official PHINIX+ Discord server: \
 				#link(discord-link, box(image("/assets/discord.svg", width: 5%)))
@@ -68,12 +74,6 @@
 			]
 		)
 	}]
-
-	set table(stroke: 0.2mm + table-bg-color)
-	set table(fill: (_, row) => if row == 0 {table-bg-color} else {white})
-	show table: set align(center)
-	show table.cell.where(y: 0): set text(weight: text-weight-bold)
-	show table.cell.where(y: 0): set text(fill: inv-text-fg-color)
 
 	outline(indent: 0.75em, fill: none)
 	pagebreak(weak: true)

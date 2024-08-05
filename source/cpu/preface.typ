@@ -4,6 +4,7 @@
 #let serif = "https://fonts.google.com/specimen/IBM+Plex+Serif"
 #let sans = "https://fonts.google.com/specimen/IBM+Plex+Sabs"
 #let mono = "https://fonts.google.com/specimen/Inconsolata"
+#let nerd = "https://www.nerdfonts.com/font-downloads"
 
 = Preface
 This section discusses the nature of the documentation itself, the scope and
@@ -30,7 +31,8 @@ styling are hereby given:
    "#link(serif)[IBM Plex Serif]" was used.
  - For the headings and for the title the sans serif font
    "#link(sans)[IBM Plex Sans]" was used.
- - For the code blocks the monospace font
+ - For the code blocks the #link(nerd)[Nerd Fonts]
+   variant of the monospace font
    "#link(mono)[Inconsolata]" was used.
  - Internal links (references) are in blue color with
    the exception of the contents page and footnotes.
