@@ -8,7 +8,12 @@
 #let license-link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 #let discord-link = "https://discord.gg/EFKDF3VE9C"
 
-#let template(doc-part, version, content) = {
+#let template(doc-part, version, keywords, content) = {
+	set document(title: [The PHINIX+ Documentation])
+	set document(author: "Martin Andronikos")
+	set document(date: datetime.today())
+	set document(keywords: keywords)
+
 	set page(paper: "a4", numbering: "1")
 	set page(margin: (x: 25mm, y: 20mm))
 	set text(font: font-serif, size: text-size-2)
