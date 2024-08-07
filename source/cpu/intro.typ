@@ -1,6 +1,6 @@
 #let intro = [
 
-= Introduction <Introduction>
+= Introduction <heading-introduction>
 This document is the official specification for the PHINIX+ Central Processing
 Unit. It is intended to explain in detail the capabilities and the layout of
 the processor in an abstract manner in order to remain agnostic of the possible
@@ -50,7 +50,8 @@ are as follows:
 	pointers. This feature also allows for two independent operations to
 	be executed in parallel if the implementation supports it.],
 
-	[Flags register file. (The ability to use any flag bit for any purpose.)],
+	[Condition codes register file. (The ability to use any
+	single-bit "flag" for any purpose.)],
 	[Makes operations on them a feasible prospect, reducing the amount of
 	branches. The now explicit nature of flag operations makes each instruction
 	wishing to modify them now opt-in instead of opt-out, reducing flag use.],
@@ -61,6 +62,6 @@ are as follows:
 	the least significant bits of an address useful and eliminating the need
 	for bus errors but doing so without requiring the system to perform
 	unaligned memory accesses.]
-), caption: [Notable novel features of the CPU])
+), caption: [Notable novel features of the CPU]) <table-novelfeatures>
 
 ]

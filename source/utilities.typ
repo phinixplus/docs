@@ -17,18 +17,10 @@
 }
 
 #let interjection(body, icon, color: black) = {
-	grid(columns: (20mm, auto), stroke: 0mm, fill: white,
-		align(center + horizon, block[#{
-			set text(font: font-mono)
-			set text(size: text-size-5)
-			set text(fill: color)
-			text(icon)
-		}]),
+	grid(columns: (10mm, 1fr), stroke: 0mm, fill: white, align: horizon,
+		text(font: font-mono, size: text-size-5, fill: color, icon),
 		grid.vline(stroke: (paint: color, thickness: 0.3mm, cap: "round")),
-		align(left + horizon, block(inset: 5mm)[#{
-			set text(fill: interj-fg-color)
-			text(body)
-		}])
+		block(inset: 5mm, text(fill: interj-fg-color, body))
 	)
 }
 

@@ -10,8 +10,8 @@
 This section discusses the nature of the documentation itself, the scope and
 aim of the PHINIX+ project, and about the author as an individual and their
 motives. As a result, the use of the first person in the following section is
-unavoidable. The formal specification begins at @Introduction if such details
-are irrelevant for the reader.
+unavoidable. The formal specification begins at @heading-introduction if such
+details are irrelevant for the reader.
 
 == About the Document
 The purpose of the document is to describe with maximum possible detail all the
