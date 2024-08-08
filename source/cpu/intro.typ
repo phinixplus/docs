@@ -62,6 +62,6 @@ are as follows:
 	the least significant bits of an address useful and eliminating the need
 	for bus errors but doing so without requiring the system to perform
 	unaligned memory accesses.]
-), caption: [Notable novel features of the CPU]) <table-novelfeatures>
+), caption: [Notable novel features of PHINIX+]) <table-novelfeatures>
 
 ]
