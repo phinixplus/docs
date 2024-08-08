@@ -44,11 +44,11 @@ are as follows:
 #figure(table(columns: (1fr, 2fr),
 	table.header([Feature], [Justification]),
 	[Dual register files. #footnote[As mentioned prior in relation to the m68k.]
-	(The separation of data and address registers.)],
-	[The separation of the register files allows for a trivial auto-increment
-	operation, removing the need for special hardware for the stack and other
-	pointers. This feature also allows for two independent operations to
-	be executed in parallel if the implementation supports it.],
+	(The separation of  the registers into data and address register files.)],
+	[Allows for a trivial auto-increment operation, removing the need for
+	special hardware for the stack and other pointers. This feature also allows
+	for two independent operations to be executed in parallel with little
+	increase to the size of the implementation.],
 
 	[Condition codes register file. (The ability to use any
 	single-bit "flag" for any purpose.)],

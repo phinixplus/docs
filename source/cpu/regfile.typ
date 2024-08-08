@@ -17,10 +17,14 @@ outlined in @table-novelfeatures are thus explained in detail in this chapter.
 
 == Data Registers
 The data registers are the most versatile set of registers available. Sixteen
-(16) are provided, denoted #emph[\$xN] (where N, a single hexadecimal digit,
-ranges from 0 to 9 and then from A to F). They are intended to store values
-loaded from or to be stored to memory and to be the subject of most arithmetic
-and logic operations the CPU performs.
+(16) are provided, denoted #emph[\$xN] (where N, a single hexadecimal digit
+ranging from 0 to 9 and then from A to F).
+
+#note[
+	Data registers are intended to store values loaded from or to be stored to
+	memory and to be the subject of most arithmetic and logic operations the
+	CPU performs.
+]
 
 #figure(table(columns: 3,
 	table.header([Architectural Name], [Convention Name], [Saving]),
@@ -53,6 +57,19 @@ and logic operations the CPU performs.
 ]
 
 == Address Registers
+The address registers are a secondary set of registers that are less versatile
+computation-wise than the data registers. Just like the data registers, sixteen
+(16) are provided, denoted instead #emph[\$yN] (where N, a single hexadecimal
+digit, ranging from 0 to 9 and then from A to F).
+
+#note[
+	While still having more available functionality than for just storing
+	and manipulating pointers, the address registers' primary purpose is
+	nevertheless for manipulating and storing pointers or as a bank of
+	secondary storage when the data registers are not enough to hold all
+	datums of a computation.
+]
+
 #figure(table(columns: 3,
 	table.header([Architectural Name], [Convention Name], [Saving]),
 	[\$y0], [TBD], [TBD],
