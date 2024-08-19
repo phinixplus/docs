@@ -28,7 +28,7 @@ provided registers do exist in PHINIX+ but not without being improved upon.
 One of the most apparent features a programmer wishing to use PHINIX+ encounters
 is the dual register file. This is a feature influenced directly by the Motorola
 68000 series of processors. Though that processor was in no way following RISC,
-the the adoption of the dual register file was due to similar reasons. As a
+the adoption of the dual register file was due to similar reasons. As a
 result PHINIX+ has been lovingly nicknamed the _Actually-RISC#emoji.tm m68k_
 #footnote[Disclaimer, not actually a trademark.].
 
