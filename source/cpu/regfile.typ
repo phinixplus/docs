@@ -17,8 +17,8 @@ outlined in @table-novelfeatures are thus explained in detail in this chapter.
 
 == Data Registers
 The data registers are the most versatile set of registers available. Sixteen
-(16) are provided, denoted #emph[\$xN] (where N, a single hexadecimal digit
-ranging from 0 to 9 and then from A to F).
+(16) are provided, all 32 bits in width, denoted #emph[\$xN] (where N, a single
+hexadecimal digit ranging from 0 to 9 and then from A to F).
 
 #note[
 	Data registers are intended to store values loaded from or to be stored to
@@ -59,8 +59,8 @@ ranging from 0 to 9 and then from A to F).
 == Address Registers
 The address registers are a secondary set of registers that are less versatile
 computation-wise than the data registers. Just like the data registers, sixteen
-(16) are provided, denoted instead #emph[\$yN] (where N, a single hexadecimal
-digit, ranging from 0 to 9 and then from A to F).
+(16) are provided, again all 32 bits in width, denoted instead #emph[\$yN]
+(where N, a single hexadecimal digit, ranging from 0 to 9 and then from A to F).
 
 #note[
 	While still having more available functionality than for just storing
@@ -91,16 +91,42 @@ digit, ranging from 0 to 9 and then from A to F).
 ), caption: [PHINIX+'s address registers]) <table-addrregs>
 
 == Condition Code Registers
+The condition code registers are the most special one of the bunch. Eight (8) of
+them are provided, each one being just 1 bit in width. They are denoted
+#emph[\$cN] (where N, a single octal digit, ranging from 0 to 7).
+
+#note[
+	A condition code register's purpose is to hold intermediate "flags",
+	assisting in program control flow. The branch instructions to be later
+	discussed are intimately tied with this set of registers.
+]
+
 #figure(table(columns: 3,
 	table.header([Architectural Name], [Convention Name], [Saving]),
-	[\$c0], [TBD], [TBD],
-	[\$c1], [TBD], [TBD],
-	[\$c2], [TBD], [TBD],
-	[\$c3], [TBD], [TBD],
-	[\$c4], [TBD], [TBD],
-	[\$c5], [TBD], [TBD],
-	[\$c6], [TBD], [TBD],
-	[\$c7], [TBD], [TBD]
+	[\$c0], [\$c0], [N/A],
+	[\$c1], [\$c1], [Callee],
+	[\$c2], [\$c2], [Callee],
+	[\$c3], [\$c3], [Callee],
+	[\$c4], [\$c4], [Callee],
+	[\$c5], [\$c5], [Callee],
+	[\$c6], [\$c6], [Callee],
+	[\$c7], [\$c7], [Callee]
 ), caption: [PHINIX+'s condition code registers]) <table-condregs>
+
+#comment[
+	Condition code register #emph[\$c0] is a register that constantly and
+	forever holds a zero bit. This simplifies the logic needed to handle
+	a cascading set of conditions and reduces the amount of instructions
+	required to handle all the needed cases.
+]
+
+#comment[
+	Having eight condition code registers, each one being 1 bit in width means
+	that saving and restoring the contents can be done in one fell swoop. The
+	entire register file's contents can fit into a single byte. To aid in this
+	mechanic, all of the registers have the same saving convention (with the
+	exception of #emph[\$c0], on which saving is not applicable due to its
+	constant nature).
+]
 
 ]
