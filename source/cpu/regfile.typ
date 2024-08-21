@@ -129,4 +129,25 @@ them are provided, each one being just 1 bit in width. They are denoted
 	constant nature).
 ]
 
+== Calling Convention
+The tables of registers previously showcased contained three columns. The first
+one, labeled #emph[Architectural Name] denotes the systematic name given to the
+register for the purposes of a hardware point-of-view. The other two columns
+however, #emph[Convention Name] and #emph[Saving], concern a software
+point-of-view instead. An implementer doesn't care how the registers are used
+because they are all generic so they get generic architectural names. A
+programmer however needs to organize the registers given to them in a consistent
+manner in order to ensure proper behavior when calling into subroutines, thus a
+#emph[convention] for #emph[calling], a pre-agreed set of rules to ensure
+compatibility between interacting subroutines.
+
+This document provides a reference, standard calling convention that any
+software written for the processor is advised to use such that software written
+by different developers can interoperate. Developers however are free to come
+up with whatever alternative convention to better suit their needs, it just then
+falls unto them to interface with other existing software which is not
+compatible with their custom convention. A calling convention's whole purpose
+is to provide a common ground for software development, so that someones's code
+is able to use someone else's.
+
 ]
