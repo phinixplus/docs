@@ -20,7 +20,7 @@
 	grid(columns: (10mm, 1fr), stroke: 0mm, fill: white, align: horizon,
 		text(font: font-mono, size: text-size-5, fill: color, icon),
 		grid.vline(stroke: (paint: color, thickness: 0.3mm, cap: "round")),
-		block(inset: 5mm, text(fill: interj-fg-color, body))
+		block(inset: (x: 5mm, y: 1mm), text(fill: interj-fg-color, body))
 	)
 }
 
