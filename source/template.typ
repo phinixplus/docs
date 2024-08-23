@@ -80,7 +80,7 @@
 		)
 	}]
 
-	outline(indent: 0.75em, fill: none)
+	outline(indent: 0.75em, fill: line(length: 100%, stroke: 0.2mm))
 	pagebreak(weak: true)
 
 	[#content]

@@ -1,11 +1,12 @@
 {
 	"cSpell.words": [
-		"datetime",
-		"Inconsolata",
-		"luma",
-		"pagebreak",
 		"PHINIX",
-		"repr",
-		"Typst"
+		"Typst",
+		"Inconsolata",
+		"datetime",
+		"pagebreak",
+		"vline",
+		"luma",
+		"repr"
 	]
 }
