@@ -42,6 +42,7 @@
 	}
 
 	show figure: set align(center)
+	show figure: set block(breakable: true)
 	show figure: x => block[#x.body#v(0.5em, weak: true)#x.caption]
 	show figure.caption: x => {
 		set text(size: text-size-1, weight: text-weight-bold)

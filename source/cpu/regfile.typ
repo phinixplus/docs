@@ -77,7 +77,8 @@ registers are not enough to hold all datums of a computation.
 
 #pagebreak()
 === Data and Address Register Tables
-The defined registers are hereby illustrated in table form.
+The previously discussed general purpose registers are hereby illustrated in
+table form.
 
 #figure(grid(columns: 2, gutter: 1em,
 	table(columns: (40mm),
@@ -93,13 +94,14 @@ The defined registers are hereby illustrated in table form.
 ), caption: [PHINIX+'s general purpose registers]) <table-generalregs>
 
 == Condition Code Registers
-The condition code registers are the most special one of the bunch. 8 of
-them are provided, each one being just 1 bit in width. They are denoted
-#emph[\$cN] (where N, a single octal digit, ranging from 0 to 7). A condition
-code register's purpose is to hold intermediate "flags", assisting in program
-control flow. The branch instructions to be later discussed are intimately tied
-with this set of registers. #footnote[Branch instructions and how they relate
-to the condition code registers are discussed in TODO.]
+The condition code registers, or "flag" registers, are a collection of 8
+registers each one only 1 bit in width. Their purpose is, as the name suggests,
+to hold intermediate condition codes for the purpose of program control flow.
+Branch instructions which are later discussed are intimately tied with this set
+of registers. #footnote[Branch instructions and how they relate to the condition
+code registers are discussed in TODO.] This is the second novel feature of
+PHINIX+, initially noted in the second entry of @table-novelfeatures. They are
+denoted #emph[\$cN] (where N, a single octal digit, ranging from 0 to 7).
 
 #figure(table(columns: 1,
 	table.header([Condition Code Registers]),
@@ -113,36 +115,33 @@ to the condition code registers are discussed in TODO.]
 	required to handle all the needed cases.
 ]
 
+== Register Calling Convention
+The tables of registers previously showcased contained just one column which
+lists the "architectural names" of the registers which denotes the systematic
+name given to the register for the purposes of a hardware point-of-view. An
+implementer doesn't care how the registers are used because they are all generic
+so they get generic architectural names.
+
+In this section the registers are re-examined, this time concerning a software
+point-of-view instead. In contrast with the implementer, a programmer needs to
+organize the registers given to them in a consistent manner in order to ensure
+proper behavior when calling into subroutines, thus a #emph[convention] for
+#emph[calling], a pre-agreed set of rules to ensure compatibility between
+interacting subroutines.
+
+To assist in this endeavour this document provides a reference, standard calling
+convention that any software written for the processor is advised to use such
+that software written by different developers can interoperate. A calling
+convention's whole purpose is to provide a common ground for software
+development, so that someones's code is able to use someone else's.
+
 #comment[
-	Having eight condition code registers, each one being 1 bit in width means
-	that saving and restoring the contents can be done in one fell swoop. The
-	entire register file's contents can fit into a single byte. To aid in this
-	mechanic, all of the registers have the same saving (with the exception of
-	#emph[\$c0], on which saving is not applicable due to its constant nature).
+	Developers are free to come up with an alternative convention to better
+	suit their needs, it just then falls unto them to interface with other
+	existing software which is not compatible with their custom convention.
 ]
 
-== Register Calling Convention
-The tables of registers previously showcased contained three columns. The first
-one, labeled #emph[Architectural Name] denotes the systematic name given to the
-register for the purposes of a hardware point-of-view. The other two columns
-however, #emph[Convention Name] and #emph[Saving], concern a software
-point-of-view instead. An implementer doesn't care how the registers are used
-because they are all generic so they get generic architectural names. A
-programmer however needs to organize the registers given to them in a consistent
-manner in order to ensure proper behavior when calling into subroutines, thus a
-#emph[convention] for #emph[calling], a pre-agreed set of rules to ensure
-compatibility between interacting subroutines.
-
-This document provides a reference, standard calling convention that any
-software written for the processor is advised to use such that software written
-by different developers can interoperate. Developers however are free to come
-up with whatever alternative convention to better suit their needs, it just then
-falls unto them to interface with other existing software which is not
-compatible with their custom convention. A calling convention's whole purpose
-is to provide a common ground for software development, so that someones's code
-is able to use someone else's.
-
-== Register File Conventions Tables
+=== Data Register Convention
 #figure(table(columns: 3,
 	table.header([Architectural Name], [Convention Name], [Saving]),
 	[\$x0], [\$zr], [N/A],
@@ -163,6 +162,7 @@ is able to use someone else's.
 	[\$xF], [TBD], [TBD]
 ), caption: [PHINIX+'s data registers]) <table-dataregs>
 
+=== Address Register Convention
 #figure(table(columns: 3,
 	table.header([Architectural Name], [Convention Name], [Saving]),
 	[\$y0], [TBD], [TBD],
@@ -183,6 +183,7 @@ is able to use someone else's.
 	[\$yF], [TBD], [TBD]
 ), caption: [PHINIX+'s address registers]) <table-addrregs>
 
+=== Condition Code Register Convention
 #figure(table(columns: 3,
 	table.header([Architectural Name], [Convention Name], [Saving]),
 	[\$c0], [\$c0], [N/A],
@@ -194,5 +195,13 @@ is able to use someone else's.
 	[\$c6], [\$c6], [Callee],
 	[\$c7], [\$c7], [Callee]
 ), caption: [PHINIX+'s condition code registers]) <table-condregs>
+
+#comment[
+	Having eight condition code registers, each one being 1 bit in width means
+	that saving and restoring the contents can be done in one fell swoop. The
+	entire register file's contents can fit into a single byte. To aid in this
+	mechanic, all of the registers have the same saving (with the exception of
+	#emph[\$c0], on which saving is not applicable due to its constant nature).
+]
 
 ]
