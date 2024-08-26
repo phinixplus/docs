@@ -141,6 +141,48 @@ development, so that someones's code is able to use someone else's.
 	existing software which is not compatible with their custom convention.
 ]
 
+=== The Concept of Saving
+In the act of a subroutine call, there are two hypothetical entities at play:
+the code performing the call--referred to as the caller, and the code being
+called--referred to as the callee. Using these roles as a framework for a
+calling convention yields the simplest form of segregation based on whose duty
+it is to "clean up" the register, revert its contents to a known-good state.
+Thus each register can be assigned to either be saved by the caller or by the
+callee. The PHINIX+ calling convention bases its design on this principle.
+
+In practice, what it means for a register to be caller-saved is that the code
+being called has no obligation to maintain the contents of the register to
+its initial value. After the subroutine returns the caller has to assume that
+all of the caller-saved registers now contain garbage values. Thus it's the
+duty of the caller to preserve the values of registers it wants to continue
+using after the subroutine call.
+
+#comment[
+	There are mainly two ways the caller can preserve the value of
+	caller-saved register that it wants to keep using after the subroutine
+	return. Those are:
+	- #[Exploiting the stack by pushing the value of the register
+	onto its stack frame. #footnote[The stack is a concept that is
+	explained in detail in TODO.] <footnote-stack>]
+	- #[Moving the value of the register onto another, callee-saved
+	register that had previously been saved itself.]
+]
+
+Likewise, what it means in practice for a register to be callee-saved is that
+the code doing the call expects that the value of that register remains the same
+after the return of the subroutine without it having to do anything. Thus it's
+the duty of the code being called, the callee, to preserve the value in some
+way before using it and then revert the register to the old value before
+returning.
+
+#comment[
+	There are, agin, mainly two ways the callee can preserve the value of
+	callee-saved register that it later intends to use. Those are:
+	- #[Exploiting the stack by pushing the value of the register
+	onto its stack frame. #footnote(<footnote-stack>)]
+	- #[Moving the value of the register onto another, caller-saved register.]
+]
+
 === Data Register Convention
 #figure(table(columns: 4,
 	table.header([Architectural Name], [Convention Name], [Description], [Saving]),
