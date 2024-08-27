@@ -52,16 +52,16 @@ performs.
 	Data register #emph[\$x0] being a constant zero aids in better usage of
 	existing instructions (or conversely allows for the reduction of the needed
 	instructions) in at least the following two ways:
-	- #[By allowing them to discard their result by storing to this register
-	when only the condition code generated from that instruction is required.
-	For example, a comparison instruction can be achieved by doing a subtraction
-	and storing the result to register zero.]
-	- #[By allowing instructions that address memory to coalesce under a
-	single addressing mode, "reg + imm". This is such because when supplying
-	#emph[\$x0] as the register, the effective address becomes just the
-	immediate, and by supplying a zero immediate the effective address becomes
-	the supplied register. #footnote[Addressing modes as they relate to PHINIX+
-	are discussed in TODO.]]
+	-	#[By allowing them to discard their result by storing to this
+		register when only the condition code generated from that instruction
+		is required. For example, a comparison instruction can be achieved by
+		doing a subtraction and storing the result to register zero.]
+	-	#[By allowing instructions that address memory to coalesce under a
+		single addressing mode, "reg + imm". This is such because when
+		supplying #emph[\$x0] as the register, the effective address becomes
+		just the immediate, and by supplying a zero immediate the effective
+		address becomes the supplied register. #footnote[Addressing modes as
+		they relate to PHINIX+ are discussed in TODO.]]
 ]
 
 === Address Registers
@@ -161,11 +161,11 @@ using after the subroutine call.
 	There are mainly two ways the caller can preserve the value of
 	caller-saved register that it wants to keep using after the subroutine
 	return. Those are:
-	- #[Exploiting the stack by pushing the value of the register
-	onto its stack frame. #footnote[The stack is a concept that is
-	explained in detail in TODO.] <footnote-stack>]
-	- #[Moving the value of the register onto another, callee-saved
-	register that had previously been saved itself.]
+	-	#[Exploiting the stack by pushing the value of the register
+		onto its stack frame. #footnote[The stack is a concept that is
+		explained in detail in TODO.] <footnote-stack>]
+	-	#[Moving the value of the register onto another, callee-saved
+		register that had previously been saved itself.]
 ]
 
 Likewise, what it means in practice for a register to be callee-saved is that
@@ -178,12 +178,39 @@ returning.
 #comment[
 	There are, agin, mainly two ways the callee can preserve the value of
 	callee-saved register that it later intends to use. Those are:
-	- #[Exploiting the stack by pushing the value of the register
-	onto its stack frame. #footnote(<footnote-stack>)]
-	- #[Moving the value of the register onto another, caller-saved register.]
+	-	#[Exploiting the stack by pushing the value of the register
+		onto its stack frame. #footnote(<footnote-stack>)]
+	-	#[Moving the value of the register onto another, caller-saved register.]
 ]
 
+=== Convention Tables Glossary <blah>
+The three tables to follow, @table-dataregs-conv, @table-addrregs-conv, and
+@table-condregs-conv, contain a compact description of how they are intended
+to be used by the software developer. The terms used in these tables are hereby
+explained.
+
+The headers of the tables contain these four entries with the exception of the
+condition code registers table which contains only the first and last entries:
+-	#[#emph[Architectural Name] is the one column of the original table.]
+-	#[#emph[Convention Name] lists out the name that a programmer will use
+	inside their aseembly language development environment to refer to the
+	specific register. It is an abbreviated form of the register's intended
+	purpose.]
+-	#[#emph[Description] expands on the #emph[Convention Name] by listing out
+	in full the intended purpose of the specific register. Not every register
+	has a unique purpose so smaller groupings of registers with a common purpose
+	are additionally numbered.]
+-	#[#emph[Saving] lists out the assigned saving of the specific register,
+	either caller-save or callee-save (in the cases where it applies to do so).
+	The implications for each of the two savings are explained in the previous
+	sub-section.]
+
 === Data Register Convention
+The following table is an expanded version of the before shown table of data
+registers (left half of @table-generalregs). Three additional columns have been
+added to detail the proposed standard calling convention for the data register
+file.
+
 #figure(table(columns: 4,
 	table.header([Architectural Name], [Convention Name], [Description], [Saving]),
 	[\$x0], [\$zr], [Constant Zero], [N/A],
@@ -202,9 +229,14 @@ returning.
 	[\$xD], [\$s4], [Saved Value \#4], [Callee],
 	[\$xE], [\$s5], [Saved Value \#5], [Callee],
 	[\$xF], [\$fp], [Frame Pointer], [Callee]
-), caption: [PHINIX+'s data registers]) <table-dataregs>
+), caption: [PHINIX+'s data registers]) <table-dataregs-conv>
 
 === Address Register Convention
+The following table is an expanded version of the before shown table of address
+registers (right half of @table-generalregs). Three additional columns have been
+added to detail the proposed standard calling convention for the address
+register file in the same manner as before.
+
 #figure(table(columns: 4,
 	table.header([Architectural Name], [Convention Name], [Description], [Saving]),
 	[\$y0], [\$a3], [Subroutine Argument \#3], [Caller],
@@ -223,9 +255,28 @@ returning.
 	[\$yD], [\$k1], [System Reserved \#1], [Callee],
 	[\$yE], [\$k2], [System Reserved \#2], [Callee],
 	[\$yF], [\$kp], [System Stack Pointer], [Callee]
-), caption: [PHINIX+'s address registers]) <table-addrregs>
+), caption: [PHINIX+'s address registers]) <table-addrregs-conv>
+
+#note[
+	The last four registers in the address register file are "privileged".
+	That means that they are accessible only when the processor is in a special
+	mode of operation reserved for managerial code like an operating system's
+	kernel. #footnote[PHINIX+'s privileged execution mode is explained in detail
+	in TODO.] When not in this mode, the registers act nominally the same as the
+	data register #emph[\$zr]. An implementer may however choose to have the
+	processor react on such a violating access by alerting the privileged code
+	of such an action. #footnote[Such an alert would constitute an interrupt.
+	Interrupts are explained in detail in TODO.]
+]
 
 === Condition Code Register Convention
+The following table is an expanded version of the before shown table of
+condition code registers (@table-condregs). Only one additional column has been
+added to detail the proposed standard calling convention for the condition code
+register file. Only a saving convention has been assigned to this file in
+contrast to the other two due the nature of the file. All of the registers
+are in the same and only grouping with callee saving.
+
 #figure(table(columns: 2,
 	table.header([Architectural Name], [Saving]),
 	[\$c0], [N/A],
@@ -236,7 +287,7 @@ returning.
 	[\$c5], [Callee],
 	[\$c6], [Callee],
 	[\$c7], [Callee]
-), caption: [PHINIX+'s condition code registers]) <table-condregs>
+), caption: [PHINIX+'s condition code registers]) <table-condregs-conv>
 
 #comment[
 	Having eight condition code registers, each one being 1 bit in width means

@@ -26,18 +26,18 @@ This document was written using the "#link("https://typst.app/")[Typst]"
 typesetting program. If the source code of the used template is not available
 or the reader is not aware of Typst's syntax, the decisions made regarding
 styling are hereby given:
- - Pages are A4 sized with 25mm of vertical and 20mm of horizontal margins.
- - For the bulk of the text the serif font
-   "#link(serif)[IBM Plex Serif]" was used.
- - For the headings and for the title the sans serif font
-   "#link(sans)[IBM Plex Sans]" was used.
- - For the code blocks the #link(nerd)[Nerd Fonts]
-   variant of the monospace font
-   "#link(mono)[Inconsolata]" was used.
- - Internal links (references) are in blue color with
-   the exception of the contents page and footnotes.
- - External links (hyperlinks) are underlined and
-   in blue color (as shown above).
+-	Pages are A4 sized with 25mm of vertical
+	and 20mm of horizontal margins.
+-	For the bulk of the text the serif font
+	"#link(serif)[IBM Plex Serif]" was used.
+-	For the headings and for the title the sans serif font
+	"#link(sans)[IBM Plex Sans]" was used.
+-	For the code blocks the #link(nerd)[Nerd Fonts] variant
+	of the monospace font"#link(mono)[Inconsolata]" was used.
+-	Internal links (references) are in blue color with the
+	exception of the contents page and footnotes.
+-	External links (hyperlinks) are underlined and
+	in blue color (as shown above).
 
 === Licensing Decisions
 This document is licensed under the Creative Commons
