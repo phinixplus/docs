@@ -44,7 +44,7 @@ This document is licensed under the Creative Commons
 #link(license-link)[BY-NC-SA 4.0] license. This project is not currently
 intended to generate direct profit for the author and/or any other user of the
 project, focusing instead on educational and novelty value. If you are making a
-derivative of PHINIX+ you are kindly requested to retain this license per the
+derivative of PHINIX+, you are kindly requested to retain this license per the
 requirements of the license and attribute the original author. The license only
 covers the architecture itself (this document) and not any implementations of
 the described architecture.
@@ -53,13 +53,13 @@ the described architecture.
 Though I do know my way around the field of processor design and implementation,
 I have no formal experience with the subject. Everything I know about regarding
 the topic I have learned by myself and with help from other people online.
-However I am in the process of attending a computer engineering course at a
+However, I am in the process of attending a computer engineering course at a
 polytechnic university.
 
 Typesetting is also an activity which I have had to teach myself. My university
 did provide me a "Technical Document Writing" lesson though it was in reality
 of little help. As a result, if you would like to suggest something regarding
-the document don't hesitate to reach out on #link(discord-link)[Discord].
+the document, don't hesitate to reach out on #link(discord-link)[Discord].
 
 == About the Project
 This documentation and the overall design and direction of the PHINIX+ project
