@@ -8,6 +8,11 @@
 #let license-link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 #let discord-link = "https://discord.gg/EFKDF3VE9C"
 
+#assert(
+	sys.version == version(0, 13, 1),
+	message: "Please use Typst v0.13.1"
+)
+
 #let template(doc-part, version, keywords, content) = {
 	set document(title: [The PHINIX+ Documentation])
 	set document(author: "Martin Andronikos")
@@ -16,16 +21,18 @@
 
 	set page(paper: "a4", numbering: "1")
 	set page(margin: (x: 25mm, y: 20mm))
+
+	set text(fallback: false, hyphenate: false)
 	set text(font: font-serif, size: text-size-2)
 	set text(weight: text-weight-normal, fill: text-fg-color)
-	set text(hyphenate: false)
+
 	set par(justify: true)
 	set par(leading: 0.6em)
 
 	set block(breakable: true)
 	show link: x => text(fill: blue, underline(x))
 	show ref: x => text(fill: blue, x)
-	
+
 	set heading(numbering: "1.1 ")
 	show heading: set text(font: font-sans)
 	show heading: set text(weight: heading-weight, fill: heading-fg-color)
@@ -46,7 +53,7 @@
 	show figure: x => block[#x.body#v(0.5em, weak: true)#x.caption]
 	show figure.caption: x => {
 		set text(size: text-size-1, weight: text-weight-bold)
-		[#x.supplement #x.counter.display(x.numbering):]
+		[#x.supplement #context x.counter.display(x.numbering):]
 		text(weight: text-weight-normal)[ #x.body]
 	}
 
@@ -81,7 +88,8 @@
 		)
 	}]
 
-	outline(indent: 0.75em, fill: line(length: 100%, stroke: 0.2mm))
+	set outline.entry(fill: line(length: 100%, stroke: 0.2mm))
+	outline(indent: 0.75em)
 	pagebreak(weak: true)
 
 	[#content]

@@ -6,7 +6,7 @@
 )
 
 #import "/source/template.typ": template
-#show: x => template("Part 1: The CPU", "0.4.6", keywords, x)
+#show: x => template("Volume 1: The CPU", "0.4.7", keywords, x)
 
 #import "preface.typ": preface; #preface
 #import "intro.typ": intro; #intro
