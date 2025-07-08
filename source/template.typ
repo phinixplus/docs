@@ -5,8 +5,12 @@
 #import "/source/config.typ": text-weight-normal, text-weight-bold, heading-weight
 #import "/source/config.typ": text-size-1, text-size-2, text-size-3, text-size-4, text-size-5
 
+#let typst-link = "https://typst.app/"
+
 #let license-link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 #let discord-link = "https://discord.gg/EFKDF3VE9C"
+#let github-org-link = "https://github.com/phinixplus/"
+#let github-docs-link = "https://github.com/phinixplus/docs/"
 
 #assert(
 	sys.version == version(0, 13, 1),
@@ -60,6 +64,7 @@
 	set table(stroke: 0.2mm + table-bg-color)
 	set table(fill: (_, row) => if row == 0 {table-bg-color} else {white})
 	show table: set align(center)
+	show table.cell: set align(center + horizon)
 	show table.cell.where(y: 0): set text(weight: text-weight-bold)
 	show table.cell.where(y: 0): set text(fill: inv-text-fg-color)
 

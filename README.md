@@ -8,7 +8,8 @@ The contents of this repository are licensed under the
 license.
 
 ## Contents
-- Volume 1: [CPU](documents/cpu.pdf)
+- Volume 0: [Foreword](documents/foreword.pdf)
+- Volume 1: [The CPU](documents/cpu.pdf)
 
 ## Versioning
 The document versioning system is to indicate the severity of the changes being made.

@@ -29,7 +29,9 @@ $(PDF_DOC_DIR)/$1.pdf: \
 $$(wildcard $(SOURCE_DIR)/*.typ) \
 $$(wildcard $(SOURCE_DIR)/$1/*.typ)
 	$(TYP_COMPILER) compile $(TYP_FLAGS) \
-	$(SOURCE_DIR)/$1/$1.typ $$@
+	$(SOURCE_DIR)/$1/root.typ $$@
 endef
 $(foreach v,$(VOLUME_NAMES), \
 	$(eval $(call DYN_RULE,$v)))
+
+# ---------------------------------------------------------------------------- #

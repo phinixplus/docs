@@ -1,7 +1,7 @@
 #let intro = [
 
 = Introduction <heading-introduction>
-This document is the official specification for the PHINIX+ Central Processing
+This volume is the official specification for the PHINIX+ Central Processing
 Unit. It is intended to explain in detail the capabilities and the layout of
 the processor in an abstract manner in order to remain agnostic of the possible
 implementations of it. While this document doesn't try to make any assertions
@@ -41,7 +41,6 @@ been taken to devise methods that improve performance using the minimum amount
 of required hardware. Following is a list of the most important novel features
 of the CPU:
 
-#show table.cell: set align(center + horizon)
 #figure(table(columns: (1fr, 2fr),
 	table.header([Feature], [Justification]),
 	[Dual register files. #footnote[As mentioned prior in relation to the m68k.]
