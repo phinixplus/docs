@@ -1,3 +1,5 @@
+#let docs-ver = "0.5.1"
+
 #let font-sans = "IBM Plex Sans"
 #let font-serif = "IBM Plex Serif"
 #let font-mono = "Inconsolata Nerd Font"

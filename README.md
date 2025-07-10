@@ -8,7 +8,7 @@ The contents of this repository are licensed under the
 license.
 
 ## Contents
-- Volume 0: [Foreword](documents/foreword.pdf)
+- Volume 0: [Preface](documents/preface.pdf)
 - Volume 1: [The CPU](documents/cpu.pdf)
 
 ## Versioning

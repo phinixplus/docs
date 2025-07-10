@@ -12,18 +12,24 @@ to the project and my aspirations for the future.
 == On Hardware Engineering
 I knew my passion was computer engineering since high school. Since then
 I have been researching about the inner workings of computers and their
-operating principles. Even though I am in the process of attending a
-computer engineering course at a polytechnic university, most of my knowledge
-had been acquired before university. In other words, as I am writing this,
-I do not currently possess any formal experience or certification on the topic,
-and instead am self-taught.
+operating principles. Due to the complexity in modern computational systems,
+the best introduction to the field is looking at designs of the past, or
+in other words the field of "retrocomputing". The constraints in the designs
+of that era also were interesting and a source of influence to me in and of
+themselves.
 
-=== Sources of Info and Inspiration
+=== Education
+Even though I am in the process of attending a computer engineering course
+at a polytechnic university, most of my knowledge had been acquired before
+university. In other words, as I am writing this, I do not currently possess
+any formal experience or certification on the topic, and instead am self-taught.
 Most of my knowledge about the topic has been acquired from online sources,
 mostly Wikipedia and YouTube, and from direct assistance and guidance from
-people I met online, mostly on Discord. I would like to use this opportunity
-to point out a few of the exceptional people that have directly or indirectly
-helped me progress in this field:
+people I met online, mostly on Discord.
+
+=== Attributions
+I would like to use this opportunity to point out a few of the exceptional
+people that have directly or indirectly helped me progress in this field:
 -	*Ben Eater*: The original homebrew computing youtuber. His series on
 	building a CPU on breadboards was the catalyst that got me interested
 	in the first place almost 10 years ago. He has since moved on to other
