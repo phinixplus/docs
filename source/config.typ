@@ -1,4 +1,4 @@
-#let docs-ver = "0.5.2"
+#let docs-ver = "0.5.3"
 
 #let font-sans = "IBM Plex Sans"
 #let font-serif = "IBM Plex Serif"
@@ -13,14 +13,13 @@
 #let text-fg-color = luma(15%)
 #let interj-fg-color = luma(35%)
 #let inv-text-fg-color = luma(100%)
-#let text-weight-normal = 400
-#let text-weight-bold = 700
+#let text-weight-normal = "regular"
+#let text-weight-bold = "bold"
 
 #let heading-fg-color = luma(0%)
-#let heading-weight = 400
+#let heading-weight = "regular"
 
 #let table-bg-color = luma(10%)
 
 #let code-bg-color = luma(90%)
 #let code-fg-color = luma(80%)
-#let code-weight = 500

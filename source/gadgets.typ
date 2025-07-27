@@ -1,6 +1,6 @@
 #import "/source/config.typ": font-sans, font-mono
 #import "/source/config.typ": interj-fg-color, text-fg-color, code-bg-color, code-fg-color
-#import "/source/config.typ": text-weight-normal, text-weight-bold, code-weight
+#import "/source/config.typ": text-weight-normal, text-weight-bold
 #import "/source/config.typ": text-size-2, text-size-5
 
 #let date-now = {
@@ -28,4 +28,3 @@
 	show line: set align(center)
 	line(length: length, stroke: 0.1mm)
 }
-

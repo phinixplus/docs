@@ -7,9 +7,11 @@ PDF_DOC_DIR	= documents
 SOURCE_DIR	= source
 ASSET_DIR	= assets
 
+FONTS_DIR	= $(ASSET_DIR)/fonts
+
 ### Compiler Configuration ###
 TYP_COMPILER		 = typst
-override TYP_FLAGS	+= --root .
+override TYP_FLAGS	+= --root . --ignore-system-fonts --font-path=$(FONTS_DIR)
 
 # ---------------------------------------------------------------------------- #
 
