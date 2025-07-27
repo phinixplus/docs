@@ -1,6 +1,6 @@
 #let regfile = [
 
-#import "/source/utilities.typ": note, comment
+#import "/source/gadgets.typ": note, comment
 
 = Register Files
 A register file is a grouping of individually addressable memory cells, also

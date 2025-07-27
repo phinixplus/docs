@@ -1,4 +1,4 @@
-#import "/source/utilities.typ": date-now
+#import "/source/gadgets.typ": date-now
 
 #import "/source/config.typ": font-sans, font-serif
 #import "/source/config.typ": text-fg-color, inv-text-fg-color, heading-fg-color, table-bg-color
