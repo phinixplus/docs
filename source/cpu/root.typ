@@ -11,3 +11,5 @@
 
 #import "intro.typ": intro; #intro
 #import "regfile.typ": regfile; #regfile
+#import "ifmts.typ": ifmts; #ifmts
+#import "instrs.typ": instrs; #instrs

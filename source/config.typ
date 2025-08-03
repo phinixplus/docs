@@ -1,4 +1,4 @@
-#let docs-ver = "0.5.4"
+#let docs-ver = "0.6.0"
 
 #let font-sans = "IBM Plex Sans"
 #let font-serif = "IBM Plex Serif"
@@ -23,3 +23,9 @@
 
 #let code-bg-color = luma(90%)
 #let code-fg-color = luma(80%)
+
+#let ifmt-opc-color = red.lighten(65%)
+#let ifmt-aux-color = teal.lighten(65%)
+#let ifmt-reg-color = green.lighten(65%)
+#let ifmt-imm-color = yellow.lighten(65%)
+#let ifmt-empty-color = gray.lighten(65%)
