@@ -13,8 +13,8 @@ motives. As a result, the use of the first person in the following chapters is
 unavoidable. The formal specification begins at Volume 1 if such details are
 irrelevant for the reader.
 
-The purpose of the documentation is to describe with maximum possible detail
-all the features of the PHINIX+ system. It therefore tries to conform to the
+The purpose of the documentation is to describe all of the features of the PHINIX+ 
+system with maximum possible detail. Therefore, it tries to conform to the
 typical requirements expected from technical documentation. The most important
 details to be transparent about regarding the documents themselves are thus the
 decisions about the look of the documents (styling) and about the licensing
