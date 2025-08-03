@@ -1,4 +1,4 @@
-#let docs-ver = "0.5.3"
+#let docs-ver = "0.5.4"
 
 #let font-sans = "IBM Plex Sans"
 #let font-serif = "IBM Plex Serif"
