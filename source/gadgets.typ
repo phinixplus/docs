@@ -125,7 +125,7 @@
 )
 
 #let ifmt-template-wcggib(
-	name: "WCGGI", opc: "opcode", funct: "funct",
+	name: "WCGGIB", opc: "opcode", funct: "funct",
 	tgt-g: "tgt.g", nt: "nt", tgt-c: "tgt.c", src-g: "src.g", imm: "imm8"
 ) = ifmt-template(name: name,
 	(bits: 8, color: ifmt-imm-color, label: imm),
