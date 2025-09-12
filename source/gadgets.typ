@@ -25,7 +25,7 @@
 #let note(body) = interjection(body, [], color: blue)
 #let comment(body) = interjection(body, [], color: green)
 
-#let ifmt-template(name: "", ..fields) = {
+#let layout(name: "", ..fields) = {
 	let bits = fields.pos().map(f => f.bits).sum()
 	assert(bits <= 32)
 
@@ -78,10 +78,10 @@
 #import "/source/config.typ": ifmt-opc-color, ifmt-aux-color
 #import "/source/config.typ": ifmt-reg-color, ifmt-imm-color
 
-#let ifmt-template-wgil(
+#let layout-wgil(
 	name: "WGIL", opc: "opcode", tgt-g: "tgt.g",
 	imm_hi: "imm20[19:16]", imm_mid: "imm20[15:8]", imm_lo: "imm20[7:0]"
-) = ifmt-template(name: name,
+) = layout(name: name,
 	(bits: 8, color: ifmt-imm-color, label: imm_lo),
 	(bits: 8, color: ifmt-imm-color, label: imm_mid),
 	(bits: 4, color: ifmt-imm-color, label: imm_hi),
@@ -89,10 +89,10 @@
 	(bits: 8, color: ifmt-opc-color, label: opc)
 )
 
-#let ifmt-template-wggih(
+#let layout-wggih(
 	name: "WGGIH", opc: "opcode", tgt-g1: "tgt.g1", tgt-g2: "tgt.g2",
 	imm_hi: "imm16[15:8]", imm_lo: "imm16[7:0]"
-) = ifmt-template(name: name,
+) = layout(name: name,
 	(bits: 8, color: ifmt-imm-color, label: imm_lo),
 	(bits: 8, color: ifmt-imm-color, label: imm_hi),
 	(bits: 4, color: ifmt-reg-color, label: tgt-g2),
@@ -100,10 +100,10 @@
 	(bits: 8, color: ifmt-opc-color, label: opc)
 )
 
-#let ifmt-template-wcgih(
+#let layout-wcgih(
 	name: "WCGIH", opc: "opcode", tgt-g: "tgt.g", nt: "nt", tgt-c: "tgt.c",
 	imm_hi: "imm16[15:8]", imm_lo: "imm16[7:0]"
-) = ifmt-template(name: name,
+) = layout(name: name,
 	(bits: 8, color: ifmt-imm-color, label: imm_lo),
 	(bits: 8, color: ifmt-imm-color, label: imm_hi),
 	(bits: 1, color: ifmt-aux-color, label: nt),
@@ -112,10 +112,10 @@
 	(bits: 8, color: ifmt-opc-color, label: opc)
 )
 
-#let ifmt-template-w3gib(
+#let layout-w3gib(
 	name: "W3GIB", opc: "opcode", funct: "funct",
 	tgt-g1: "tgt.g1", tgt-g2: "tgt.g2", src-g: "src.g", imm: "imm8"
-) = ifmt-template(name: name,
+) = layout(name: name,
 	(bits: 8, color: ifmt-imm-color, label: imm),
 	(bits: 4, color: ifmt-reg-color, label: src-g),
 	(bits: 4, color: ifmt-opc-color, label: funct),
@@ -124,10 +124,10 @@
 	(bits: 8, color: ifmt-opc-color, label: opc)
 )
 
-#let ifmt-template-wcggib(
+#let layout-wcggib(
 	name: "WCGGIB", opc: "opcode", funct: "funct",
 	tgt-g: "tgt.g", nt: "nt", tgt-c: "tgt.c", src-g: "src.g", imm: "imm8"
-) = ifmt-template(name: name,
+) = layout(name: name,
 	(bits: 8, color: ifmt-imm-color, label: imm),
 	(bits: 4, color: ifmt-reg-color, label: src-g),
 	(bits: 4, color: ifmt-opc-color, label: funct),
@@ -137,11 +137,11 @@
 	(bits: 8, color: ifmt-opc-color, label: opc)
 )
 
-#let ifmt-template-wcc3g(
+#let layout-wcc3g(
 	name: "WCC3G", opc: "opcode", funct: "funct",
 	tgt-g1: "tgt.g1", tgt-g2: "tgt.g2", src-g: "src.g",
 	nt: "nt", tgt-c: "tgt.c", ns: "ns", src-c: "src.c",
-) = ifmt-template(name: name,
+) = layout(name: name,
 	(bits: 1, color: ifmt-aux-color, label: nt),
 	(bits: 3, color: ifmt-reg-color, label: tgt-c),
 	(bits: 1, color: ifmt-aux-color, label: ns),

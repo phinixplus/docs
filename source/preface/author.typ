@@ -1,6 +1,6 @@
 #let author = [
 
-#import "/source/template.typ": typst-link, discord-link, github-docs-link
+#import "/source/template.typ": discord-link, github-docs-link
 
 = About the Author
 This section talks about me, the author and individual who is behind the

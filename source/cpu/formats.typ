@@ -1,10 +1,8 @@
-#let ifmts = [
+#let formats = [
 
-#import "/source/gadgets.typ": comment, note, separator
-#import "/source/gadgets.typ": ifmt-template-wgil
-#import "/source/gadgets.typ": ifmt-template-wggih, ifmt-template-wcgih
-#import "/source/gadgets.typ": ifmt-template-w3gib, ifmt-template-wcggib
-#import "/source/gadgets.typ": ifmt-template-wcc3g
+#import "/source/gadgets.typ": comment, note
+#import "/source/gadgets.typ": layout-wgil, layout-wggih, layout-wcgih
+#import "/source/gadgets.typ": layout-w3gib, layout-wcggib, layout-wcc3g
 
 = Instruction Formats
 Instructions are the set of fundamental operations the hardware itself
@@ -54,9 +52,9 @@ across all the defined formats that PHINIX+ uses, those being:
 #note[
 	A negation selector control field always accompanies a condition code
 	register address field, and so the pair is 4 bits in size overall. This
-	was a strategic choice such that every field a multiple of 4 bits in
-	size, making it viable for a human to read machine code in hexadecimal
-	format.
+	was a strategic choice such that every component of the formats is a
+	multiple of 4 bits in size, making it viable for a human to read machine
+	code in hexadecimal format.
 ]
 
 == Format Nomenclature
@@ -85,6 +83,39 @@ feature of the format, in terms of what fields it includes.
 	`[WH](C?C?)(G|GG|3G)?(I[LHBS])?`
 ]
 
+== Format Labeling
+In the instruction format illustrations that follow, each field will also
+contain a label to identify itself and so that in the next chapter about
+the list of instructions themselves they can be given meaningful names.
+-	Immediate value fields are labeled as `immN` where `N` is the total
+	length of the field. Optionally, if the field is split up, there will
+	follow a range tag in the form of `[H:L]` where `H` and `L` are the high
+	and low indices respectively for the part of the field this section
+	contains.
+
+-	Register address fields are more varied. They can either be labeled as
+	`src`, which means this address is only used to read from a register
+	(source), or as `tgt`, which means this address can be used for both
+	reading from and writing to a register (target). Then follows either
+	`.g` for general purpose register address fields or `.c` for condition
+	code ones. Finally there may be a number to differentiate multiple
+	instances.
+
+-	Control fields are much simpler since there's only the three aforementioned
+	sub-types. Operation code fields are labeled `opcode`, function fields are
+	labeled `funct`, and negation selector fields are labeled either `nt` or
+	`ns` depending whether their companion register address field is either a
+	target or a source address, respectively.
+
+#comment[
+	Immediate value fields get split up and shuffled around and thus require
+	range specifiers in their labeling because an attempt was made to maximize
+	the overlap between different formats. Specifically, the field is split
+	byte-wise and then reversed, so that bigger versions of the field overlap
+	their low parts with the smaller versions and thus hardware requirements
+	are reduced.
+]
+
 == The List
 Having covered the composition and nomenclature behind the instruction formats,
 the list of instruction formats that PHINIX+ actually includes are shown in
@@ -99,26 +130,11 @@ those that require just one big immediate value field.
 	colored yellow.
 ]
 
-#ifmt-template-wgil()
-
-#separator()
-
-#ifmt-template-wggih()
-
-#separator()
-
-#ifmt-template-wcgih()
-
-#separator()
-
-#ifmt-template-w3gib()
-
-#separator()
-
-#ifmt-template-wcggib()
-
-#separator()
-
-#ifmt-template-wcc3g()
+#layout-wgil()
+#layout-wggih()
+#layout-wcgih()
+#layout-w3gib()
+#layout-wcggib()
+#layout-wcc3g()
 
 ]
