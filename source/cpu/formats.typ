@@ -1,8 +1,8 @@
 #let formats = [
 
-#import "/source/gadgets.typ": comment, note
-#import "/source/gadgets.typ": layout-wgil, layout-wggih, layout-wcgih
-#import "/source/gadgets.typ": layout-w3gib, layout-wcggib, layout-wcc3g
+#import "/source/gadgets.typ": comment, note, layout
+#import "/source/config.typ": ifmt-opc-color, ifmt-aux-color
+#import "/source/config.typ": ifmt-reg-color, ifmt-imm-color
 
 = Instruction Formats
 Instructions are the set of fundamental operations the hardware itself
@@ -130,11 +130,60 @@ those that require just one big immediate value field.
 	colored yellow.
 ]
 
-#layout-wgil()
-#layout-wggih()
-#layout-wcgih()
-#layout-w3gib()
-#layout-wcggib()
-#layout-wcc3g()
+#layout(name: "WGIL",
+	(bits: 8, color: ifmt-imm-color, label: "imm20[7:0]"),
+	(bits: 8, color: ifmt-imm-color, label: "imm20[15:8]"),
+	(bits: 4, color: ifmt-imm-color, label: "imm20[19:16]"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g"),
+	(bits: 8, color: ifmt-opc-color, label: "opcode")
+)
+
+#layout(name: "WGGIH",
+	(bits: 8, color: ifmt-imm-color, label: "imm16[7:0]"),
+	(bits: 8, color: ifmt-imm-color, label: "imm16[15:8]"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g2"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g1"),
+	(bits: 8, color: ifmt-opc-color, label: "opcode")
+)
+
+#layout(name: "WCGIH",
+	(bits: 8, color: ifmt-imm-color, label: "imm16[7:0]"),
+	(bits: 8, color: ifmt-imm-color, label: "imm16[15:8]"),
+	(bits: 1, color: ifmt-aux-color, label: "nt"),
+	(bits: 3, color: ifmt-reg-color, label: "tgt.c"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g"),
+	(bits: 8, color: ifmt-opc-color, label: "opcode")
+)
+
+#layout(name: "W3GIB",
+	(bits: 8, color: ifmt-imm-color, label: "imm8"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g"),
+	(bits: 4, color: ifmt-opc-color, label: "funct"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g2"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g1"),
+	(bits: 8, color: ifmt-opc-color, label: "opcode")
+)
+
+#layout(name: "WCGGIB",
+	(bits: 8, color: ifmt-imm-color, label: "imm8"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g"),
+	(bits: 4, color: ifmt-opc-color, label: "funct"),
+	(bits: 1, color: ifmt-aux-color, label: "nt"),
+	(bits: 3, color: ifmt-reg-color, label: "tgt.c"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g"),
+	(bits: 8, color: ifmt-opc-color, label: "opcode")
+)
+
+#layout(name: "WCC3G",
+	(bits: 1, color: ifmt-aux-color, label: "nt"),
+	(bits: 3, color: ifmt-reg-color, label: "tgt.c"),
+	(bits: 1, color: ifmt-aux-color, label: "ns"),
+	(bits: 3, color: ifmt-reg-color, label: "src.c"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g"),
+	(bits: 4, color: ifmt-opc-color, label: "funct"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g2"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g1"),
+	(bits: 8, color: ifmt-opc-color, label: "opcode")
+)
 
 ]

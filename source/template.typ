@@ -13,8 +13,8 @@
 #let github-docs-link = "https://github.com/phinixplus/docs/"
 
 #assert(
-	sys.version == version(0, 13, 1),
-	message: "Please use Typst v0.13.1"
+	sys.version == version(0, 14, 2),
+	message: "Please use Typst v0.14.2"
 )
 
 #let template(doc-part, version, keywords, content) = {
