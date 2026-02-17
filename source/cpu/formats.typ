@@ -38,49 +38,55 @@ across all the defined formats that PHINIX+ uses, those being:
 
 -	#emph[Register address] fields, used for selecting a specific register
 	from a (predetermined by a control field) register file whose value to
-	use as an operand for the operation or to which a result will be put.
-	Since they have to address either a general purpose register or a
-	condition code register, they are either 4 or 3 bits in size,
-	respectively.
+	use as an operand for the operation (source) or to which a result will
+	be put (destination). Since they have to address either a general
+	purpose register or a condition code register, they are either 4 or 3
+	bits in size, respectively.
 
 -	#emph[Immediate value] fields, used to directly supply a value (of a
 	limited numeric range) to use as an operand for the operation. Much
 	variation in the size of these fields is required in order to provide
 	maximum versatility with the limited space. As a result, immediate
-	value fields exist with sizes of 8, 16, or 20 bits.
+	value fields exist with sizes of 4, 8, 16, or 20 bits.
 
 #note[
 	A negation selector control field always accompanies a condition code
-	register address field, and so the pair is 4 bits in size overall. This
-	was a strategic choice such that every component of the formats is a
-	multiple of 4 bits in size, making it viable for a human to read machine
-	code in hexadecimal format.
+	register address field, and so the pair is 4 bits in size overall. The
+	purpose of the negation selector is to optionally invert the flag
+	involved with the associated register.
+]
+
+#comment[
+	It was a strategic choice that every component of the formats is a
+	multiple of 4 bits in size, making it viable for a human to read
+	machine code in hexadecimal format.
 ]
 
 == Format Nomenclature
 Each of the formats has been given a shorthand name derived from its
-features. This name is split into four sections, each encoding a specific
+features. This name is split into four parts, each encoding a specific
 feature of the format, in terms of what fields it includes.
-+	The first can either be `W` or `H`, signifying the total size of the
-	instruction, which can be 32 (word) or 16 (half) bits respectively.
++	First there's a `W` or an `H` to signify the total size of the
+	instruction, 32 and 16 bits respectively. #footnote[While not
+	in the base instruction set, reservations exist for half-width
+	"compressed" instruction formats.]
 
-+	Afterwards comes the specifier for the amount of condition code register
-	address fields that the format carries. For each one, a `C` is placed in
-	the name. In practice the amount ranges from zero up to two fields.
++	Afterwards appears a `C` for each of the zero to two condition
+	code register address fields.
 
-+	Next comes the specifier for the amount of general purpose register
-	address fields. For each one, a `G` is placed in the name. However if
-	the amount is more than two, use a digit to prefix the letter instead.
-	In practice the amount ranges from zero up to three fields.
++	Next appears a `G` for each of the zero to three general purpose
+	register address fields. In the case of three, the count (only `3`
+	in this case) prefixes the symbol instead of it being repeated.
 
-+	Lastly comes the, also optional, specifier for the immediate value field.
-	If it is present, an `I` is placed in the name, and then an `L`, `H`, `B`,
-	or `S` to signify the size of the immediate value, which can be 20 (long),
-	16 (half), 8 (byte), or 4 (small) bits in length, respectively.
++	Lastly, in formats including an immediate, comes an `I` and then
+	either an `S`, a `B`, an `H`, or an `L`, corresponding to one of
+	the aforementioned respective sizes.
+	#footnote[One of those reservations for half-width
+	instructions being the 4-bit "small" immediate.]
 
 #comment[
 	As a regular expression, the above rules would be:
-	`[WH](C?C?)(G|GG|3G)?(I[LHBS])?`
+	`[WH](C?C?)(G|GG|3G)?(I[SBHL])?`
 ]
 
 == Format Labeling
@@ -141,8 +147,8 @@ those that require just one big immediate value field.
 #layout(name: "WGGIH",
 	(bits: 8, color: ifmt-imm-color, label: "imm16[7:0]"),
 	(bits: 8, color: ifmt-imm-color, label: "imm16[15:8]"),
-	(bits: 4, color: ifmt-reg-color, label: "tgt.g2"),
-	(bits: 4, color: ifmt-reg-color, label: "tgt.g1"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g"),
+	(bits: 4, color: ifmt-reg-color, label: "tgt.g"),
 	(bits: 8, color: ifmt-opc-color, label: "opcode")
 )
 
@@ -157,10 +163,10 @@ those that require just one big immediate value field.
 
 #layout(name: "W3GIB",
 	(bits: 8, color: ifmt-imm-color, label: "imm8"),
-	(bits: 4, color: ifmt-reg-color, label: "src.g"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g2"),
 	(bits: 4, color: ifmt-opc-color, label: "funct"),
-	(bits: 4, color: ifmt-reg-color, label: "tgt.g2"),
-	(bits: 4, color: ifmt-reg-color, label: "tgt.g1"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g1"),
+	(bits: 4, color: ifmt-reg-color, label: "dst.g"),
 	(bits: 8, color: ifmt-opc-color, label: "opcode")
 )
 
@@ -170,7 +176,7 @@ those that require just one big immediate value field.
 	(bits: 4, color: ifmt-opc-color, label: "funct"),
 	(bits: 1, color: ifmt-aux-color, label: "nt"),
 	(bits: 3, color: ifmt-reg-color, label: "tgt.c"),
-	(bits: 4, color: ifmt-reg-color, label: "tgt.g"),
+	(bits: 4, color: ifmt-reg-color, label: "dst.g"),
 	(bits: 8, color: ifmt-opc-color, label: "opcode")
 )
 
@@ -179,10 +185,10 @@ those that require just one big immediate value field.
 	(bits: 3, color: ifmt-reg-color, label: "tgt.c"),
 	(bits: 1, color: ifmt-aux-color, label: "ns"),
 	(bits: 3, color: ifmt-reg-color, label: "src.c"),
-	(bits: 4, color: ifmt-reg-color, label: "src.g"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g2"),
 	(bits: 4, color: ifmt-opc-color, label: "funct"),
-	(bits: 4, color: ifmt-reg-color, label: "tgt.g2"),
-	(bits: 4, color: ifmt-reg-color, label: "tgt.g1"),
+	(bits: 4, color: ifmt-reg-color, label: "src.g1"),
+	(bits: 4, color: ifmt-reg-color, label: "dst.g"),
 	(bits: 8, color: ifmt-opc-color, label: "opcode")
 )
 

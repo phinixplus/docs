@@ -54,7 +54,7 @@ So, having covered all of the most important factors which have contribute
 to me deciding to start this project, I shall finally explain what the purpose
 of PHINIX+ is. In short, it is my attempt to recreate that experience from the
 past, while teaching myself the practical principles behind it. The goal is
-first and foremost to educate myself, and secondarily - to create at least a
+first and foremost to educate myself, and secondarily to create at least a
 half-descent retro-style system; something to be proud about.
 
 In practice, all that means is that PHINIX+ will be my honest attempt at a

@@ -1,7 +1,8 @@
 #import "/source/gadgets.typ": date-now
 
 #import "/source/config.typ": font-sans, font-serif
-#import "/source/config.typ": text-fg-color, inv-text-fg-color, heading-fg-color, table-bg-color
+#import "/source/config.typ": text-fg-color, inv-text-fg-color
+#import "/source/config.typ": link-color, heading-fg-color, table-bg-color
 #import "/source/config.typ": text-weight-normal, text-weight-bold, heading-weight
 #import "/source/config.typ": text-size-1, text-size-2, text-size-3, text-size-4, text-size-5
 
@@ -34,8 +35,9 @@
 	set par(leading: 0.6em)
 
 	set block(breakable: true)
-	show link: x => text(fill: blue, underline(x))
-	show ref: x => text(fill: blue, x)
+	show footnote: set text(fill: link-color)
+	show ref: set text(fill: link-color)
+	show link: x => text(fill: link-color, underline(x))
 
 	set heading(numbering: "1.1 ")
 	show heading: set text(font: font-sans)

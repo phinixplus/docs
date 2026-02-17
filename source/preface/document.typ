@@ -34,7 +34,7 @@ styling are hereby given:
 -	For the code blocks the #link(nerd)[Nerd Fonts] variant
 	of the monospace font "#link(mono)[Inconsolata]" was used.
 -	Internal links (references) are in blue color with the
-	exception of the contents page and footnotes.
+	exception of the contents page.
 -	External links (hyperlinks) are underlined and
 	in blue color (as shown above).
 
