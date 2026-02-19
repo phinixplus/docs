@@ -10,6 +10,6 @@
 #show: x => template("Volume 1: The CPU", docs-ver, keywords, x)
 
 #import "intro.typ": intro; #intro
-#import "regfile.typ": regfile; #regfile
+#import "registers.typ": registers; #registers
 #import "formats.typ": formats; #formats
 #import "instrs.typ": instrs; #instrs

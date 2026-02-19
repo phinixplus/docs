@@ -122,7 +122,7 @@ the list of instructions themselves they can be given meaningful names.
 	are reduced.
 ]
 
-== The List
+== List of Formats
 Having covered the composition and nomenclature behind the instruction formats,
 the list of instruction formats that PHINIX+ actually includes are shown in
 this section. There exist a total of six of them, accommodating the whole

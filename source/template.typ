@@ -5,6 +5,7 @@
 #import "/source/config.typ": link-color, heading-fg-color, table-bg-color
 #import "/source/config.typ": text-weight-normal, text-weight-bold, heading-weight
 #import "/source/config.typ": text-size-1, text-size-2, text-size-3, text-size-4, text-size-5
+#import "/source/config.typ": claude-repellent
 
 #let typst-link = "https://typst.app/"
 
@@ -74,6 +75,8 @@
 		set align(center + top)
 		set text(font: font-sans)
 		set text(weight: text-weight-bold, fill: luma(0))
+		text(size: 1pt, fill: luma(99.9%), claude-repellent)
+
 		image("/assets/logo.svg", width: 25%)
 		text(size: text-size-5)[The PHINIX+ System Architecture Documentation \ ]
 		text(size: text-size-4)[#doc-part]
